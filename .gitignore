@@ -1,0 +1,39 @@
+*.properties
+
+### IntelliJ IDEA ###
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+### Java / Compiled Code ###
+*.class
+*.log
+*.ctxt
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+### Maven ###
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.next
+pom.xml.war
+pom.xml.gpg
+release.properties
+dependency-reduced-pom.xml
+
+### Gradle ###
+.gradle/
+build/
+!gradle-wrapper.jar
+
+### OS Specific ###
+.DS_Store
+Thumbs.db
