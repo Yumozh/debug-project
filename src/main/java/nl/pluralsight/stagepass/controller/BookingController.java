@@ -33,7 +33,8 @@ public class BookingController {
 
     @GetMapping("/concert/{concertId}")
     public ResponseEntity<List<Booking>> getBookingsByConcert(@PathVariable Long concertId) {
-        return ResponseEntity.ok(bookingService.getBookingsByConcert(concertId));
+        List<Booking> bookings = bookingService.getBookingsByConcert(concertId);
+        return ResponseEntity.ok(bookings);
     }
 
     @PostMapping

@@ -5,6 +5,7 @@ import nl.pluralsight.stagepass.model.Booking;
 import nl.pluralsight.stagepass.model.Concert;
 import nl.pluralsight.stagepass.repository.BookingRepository;
 import nl.pluralsight.stagepass.repository.ConcertRepository;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,7 +34,7 @@ public class BookingService {
     }
 
     public List<Booking> getBookingsByConcert(Long concertId) {
-        return bookingRepository.findAll();
+        return bookingRepository.findByConcertId(concertId);
     }
 
     @Transactional
