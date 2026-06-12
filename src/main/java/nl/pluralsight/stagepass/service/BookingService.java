@@ -44,7 +44,7 @@ public class BookingService {
                 .orElseThrow(() -> new RuntimeException("Concert not found"));
 
         if (concert.getAvailableSeats() < booking.getNumberOfTickets()) {
-            throw new IllegalStateException("Not enough available tickets left for this concert!");
+            throw new InsufficientSeatsException("Cannot book " + booking.getNumberOfTickets() + " seats. Only " + concert.getAvailableSeats() + " left.");
         }
 
         // 4. Deduct the tickets
