@@ -38,6 +38,7 @@ public class BookingService {
 
     @Transactional
     public Booking createBooking(Booking booking) {
+        BigDecimal ticketPice = BigDecimal.valueOf(65.00);
         Concert concert = concertRepository.findById(booking.getConcert().getId())
                 .orElseThrow(() -> new RuntimeException("Concert not found"));
 
@@ -53,7 +54,8 @@ public class BookingService {
         concertRepository.save(concert);
 
         // Compute total price
-        booking.setTotalPrice(BigDecimal.ZERO);
+        BigDecimal totalPrice = ticketPice.multiply(BigDecimal.valueOf(booking.getNumberOfTickets()));
+        booking.setTotalPrice(totalPrice);
 
         // Set booking date and concert reference
         booking.setBookingDate(LocalDate.now());
