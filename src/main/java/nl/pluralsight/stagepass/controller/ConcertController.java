@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -26,6 +27,11 @@ public class ConcertController {
     @GetMapping
     public ResponseEntity<List<Concert>> getAllConcerts() {
         return ResponseEntity.ok(concertService.getAllConcerts());
+    }
+    @GetMapping("/upcoming")
+    public ResponseEntity<List<Concert>>getUpcomingConcerts(){
+        List<Concert> upcoming = concertService.getUpcomingConcerts();
+        return ResponseEntity.ok(upcoming);
     }
 
     @GetMapping("/{id}")
